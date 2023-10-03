@@ -1,0 +1,8 @@
+#
+# Modules used for compiling MOM6 on Cheyenne
+#
+module load ncarenv
+module load intel
+module load netcdf
+module load ncarcompilers
+module load mpt
