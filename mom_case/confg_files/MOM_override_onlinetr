@@ -1,0 +1,28 @@
+! Blank file in which we can put "overrides" for parameters
+! for online tracer simulation, usually after the spin-up
+! the restart file is needed as initial confitions
+! === grid and geom ===
+#override NIGLOBAL = 1024
+#override NJGLOBAL = 1024
+#override COORD_CONFIG = "USER"
+#override THICKNESS_CONFIG = "USER"
+#override WIND_CONFIG = "USER"
+#override KH = 100
+#override DT = 50.0
+#override DT_THERM = 50.0
+
+! === module MOM_set_visc ===
+#override BOTTOMDRAGLAW = True
+#override LINEAR_DRAG = True
+#override CDRAG = 0.003
+#override DRAG_BG_VEL = 0.1
+
+! === online tracer simulation ===
+#override KHTR = 100.0
+#override USE_USER_TRACER_EXAMPLE = True
+#override RESTART_CHECKSUMS_REQUIRED = False
+
+!#override TRACER_EXAMPLE_IC_FILE = "trac_init_MOM.nc"
+
+
+

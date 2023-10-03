@@ -1,0 +1,18 @@
+! Blank file in which we can put "overrides" for parameters
+
+!! for spin up
+! === grid and geom and time steps ===
+#override NIGLOBAL = 1024
+#override NJGLOBAL = 1024
+#override COORD_CONFIG = "USER"
+#override THICKNESS_CONFIG = "USER"
+#override WIND_CONFIG = "USER"
+#override KH = 100
+#override DT = 50.0
+#override DT_THERM = 50.0
+
+! === module MOM_set_visc ===
+#override BOTTOMDRAGLAW = True
+#override LINEAR_DRAG = True
+#override CDRAG = 0.003
+#override DRAG_BG_VEL = 0.1

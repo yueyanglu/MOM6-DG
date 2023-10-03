@@ -1,0 +1,90 @@
+"MOM Experiment"
+1 1 1 0 0 0
+"prog_%4yr_%3dy_%2hr",      6,"hours",1,"days","Time",6,"hours"
+#"cont_%4yr",     30,"days",1,"days","Time",1,"years"
+#"static_fields",   -1,"days",1,"days","Time"
+"uvh_mean_%4yr_%3dy_%2hr",   1,"hours",1,"days","Time",1,"hours"
+"uv_mean_%4yr_%3dy_%2hr",   1,"hours",1,"days","Time",1,"hours"
+# for off-line traccer
+"off_sum_%4yr_%3dy_%2hr",   1,"hours",1,"days","Time",1,"hours"
+"h_snap_%4yr_%3dy_%2hr",   1,"hours",1,"days","Time",1,"hours"
+"tr_%4yr_%3dy_%2hr",    6,"hours",1,"days","Time",6,"hours"
+
+#This is the field section of the diag_table.
+
+# Prognostic Ocean fields:
+#=========================
+"ocean_model","u","u","prog_%4yr_%3dy_%2hr","all",.false.,"none",1
+"ocean_model","v","v","prog_%4yr_%3dy_%2hr","all",.false.,"none",1
+"ocean_model","h","h","prog_%4yr_%3dy_%2hr","all",.false.,"none",1
+"ocean_model","dhdt","dhdt","prog_%4yr_%3dy_%2hr","all",.false.,"none",1
+"ocean_model","uh","uh","prog_%4yr_%3dy_%2hr","all",.false.,"none",1
+"ocean_model","vh","vh","prog_%4yr_%3dy_%2hr","all",.false.,"none",1
+
+# offline continuity:
+#=====================
+"ocean_model","u","u","uv_mean_%4yr_%3dy_%2hr","all",.true.,"none",1
+"ocean_model","v","v","uv_mean_%4yr_%3dy_%2hr","all",.true.,"none",1
+"ocean_model","uh","uh","uvh_mean_%4yr_%3dy_%2hr","all",.true.,"none",1
+"ocean_model","vh","vh","uvh_mean_%4yr_%3dy_%2hr","all",.true.,"none",1
+"ocean_model","h","h","h_snap_%4yr_%3dy_%2hr","all",.false.,"none",1
+
+# Tracer Diagnosis:
+#========================
+"ocean_model","tr1","tr1","tr_%4yr_%3dy_%2hr","all",.false.,"none",1
+"ocean_model","tr1_tendency","tr1_tendency","tr_%4yr_%3dy_%2hr","all",.false.,"none",1
+#"ocean_model","tr1_dfx","tr1_dfx","tr_%4yr_%3dy_%2hr","all",.false.,"none",2
+#"ocean_model","tr1_dfy","tr1_dfy","tr_%4yr_%3dy_%2hr","all",.false.,"none",2
+#
+"ocean_model","tr2","tr2","tr_%4yr_%3dy_%2hr","all",.false.,"none",1
+"ocean_model","tr2_tendency","tr2_tendency","tr_%4yr_%3dy_%2hr","all",.false.,"none",1
+#
+"ocean_model","tr3","tr3","tr_%4yr_%3dy_%2hr","all",.false.,"none",1
+"ocean_model","tr3_tendency","tr3_tendency","tr_%4yr_%3dy_%2hr","all",.false.,"none",1
+#
+"ocean_model","tr4","tr4","tr_%4yr_%3dy_%2hr","all",.false.,"none",1
+"ocean_model","tr4_tendency","tr4_tendency","tr_%4yr_%3dy_%2hr","all",.false.,"none",1
+#
+"ocean_model","tr5","tr5","tr_%4yr_%3dy_%2hr","all",.false.,"none",1
+"ocean_model","tr5_tendency","tr5_tendency","tr_%4yr_%3dy_%2hr","all",.false.,"none",1
+#
+"ocean_model","tr6","tr6","tr_%4yr_%3dy_%2hr","all",.false.,"none",1
+"ocean_model","tr6_tendency","tr6_tendency","tr_%4yr_%3dy_%2hr","all",.false.,"none",1
+#
+"ocean_model","tr7","tr7","tr_%4yr_%3dy_%2hr","all",.false.,"none",1
+"ocean_model","tr7_tendency","tr7_tendency","tr_%4yr_%3dy_%2hr","all",.false.,"none",1
+#
+"ocean_model","tr8","tr8","tr_%4yr_%3dy_%2hr","all",.false.,"none",1
+"ocean_model","tr8_tendency","tr8_tendency","tr_%4yr_%3dy_%2hr","all",.false.,"none",1
+
+# Forcing fields for the off-line tracer model
+#=================================================================
+"ocean_model","uhtr","uhtr","off_sum_%4yr_%3dy_%2hr","all",sum,"none",1
+"ocean_model","vhtr","vhtr","off_sum_%4yr_%3dy_%2hr","all",sum,"none",1
+"ocean_model","KHDT_x","khdt_x","off_sum_%4yr_%3dy_%2hr","all",sum,"none",1
+"ocean_model","KHDT_y","khdt_y","off_sum_%4yr_%3dy_%2hr","all",sum,"none",1
+#"ocean_model","h","h","off_snap_%4yr_%3dy","all",.false.,"none",2
+
+#
+#output_freq:  > 0  output frequency in "output_units"
+#              = 0  output frequency every time step
+#              =-1  output frequency at end of run
+#
+#output_units = units used for output frequency
+#               (years, months, days, minutes, hours, seconds)
+#
+#time_units   = units used to label the time axis
+#               (days, minutes, hours, seconds)
+#
+#
+#  FORMAT FOR FIELD ENTRIES (not all input values are used)
+#  ------------------------
+#
+#"module_name", "field_name", "output_name", "file_name" "time_sampling", time_avg, "other_opts", packing
+#
+#time_avg = .true. or .false.
+#
+#packing  = 1  double precision
+#         = 2  float
+#         = 4  packed 16-bit integers
+#         = 8  packed 1-byte (not tested?)

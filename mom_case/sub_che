@@ -1,0 +1,21 @@
+#!/bin/bash
+#======================
+# To sub: qsub sub_che 
+#======================
+#PBS -N dgyre_exp
+#PBS -A UMIA0031
+#PBS -l walltime=00:10:00
+#PBS -q economy
+## economy or regular
+## oe: merge; n: separate
+#PBS -j n
+### Select 2 nodes with 36 CPUs each for a total of 72 MPI processes 
+#PBS -l select=6:ncpus=36:mpiprocs=36
+
+### make sure the cd is '~/MOM6-examples/CERTAIN_EXP/'
+### Load correct environment 
+#source /etc/profile.d/modules.sh
+#source ../build/intel/env
+
+### Run the executable
+mpiexec_mpt dplace -s 1 ./MOM6

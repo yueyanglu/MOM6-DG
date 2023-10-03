@@ -1,0 +1,15 @@
+This directory saves the status after the 20-year spin-up. 
+
+To release tracer in the ocean at the year 21, first copy INPUT/MOM.res.nc to RESTART/MOM.res.nc.
+
+Then write the tracer initial conditions to INPUT/MOM.res.nc and ocean.stats.nc. This has been done and the resulting files are in res_for_onltr/. Just need to copy res_for_onltr/MOM.res.nc & res_for_onltr/ocean_solo.res to INPUT/ and copy res_for_onltr/ocean.stats.nc to ./. 
+
+"RESTART/MOM.res.nc" is at  datevec( datenum(1,1,1,0,0,0) + a.Time ) = 21     1     1     0     0     0 
+
+m = 0.1
+aym = 0.0
+j_shift = 0
+tau0 = 0.22
+relax_const = 1.0e-6 (for dt=50s) all over the domain (L_pro = Len_lat)
+dh = 150.0m
+
