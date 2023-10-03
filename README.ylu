@@ -1,3 +1,0 @@
-In this repo, I added a relaxation forcing to online tracer simulation. The formulation is similar to the relaxation of upper-layer thickness.
-
-Added subroutine: in "step_mom_tracer_dyn".
