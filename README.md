@@ -2,6 +2,11 @@
 
 This repo provides the configurations and source codes of MOM6 configured to simulate the double-gyre flow. 
 
+# Source codes modified for our study
+| File              | Purpose |
+| ----              | ------- |
+|```src/MOM6/config_src/drivers/solo_driver/user_surface_forcing.F90``` | add *USER_wind_forcing* to define the wind forcing for the double-gyre flow |
+
 
 # What files are what
 
